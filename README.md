@@ -19,7 +19,8 @@ funcionalidades primordiales:
 1. Ordenar la lista ingresada.
 2. Buscar un número específico en la lista ordenada.
 3. El usuario deberá poder interactuar con estas funcionalidades a través de una
-interfaz, la cual podrá ser gráfica o basada en consola. Es vital que, durante la
+interfaz, la cual podrá ser gráfica o basada en consola.
+Es vital que, durante la
 ejecución de estas operaciones, el usuario observe en tiempo real el proceso de
 ordenamiento y búsqueda.
 

@@ -98,14 +98,14 @@ class NumberVisualizer:
     #* Función para ordenar la lista usando el algoritmo de ordenamiento por inserción
     def insertion_sort(self):
         for i in range(1, len(self.lista)):
-            key = self.lista[i]
+            temp = self.lista[i]
             j = i - 1
-            while j >= 0 and key < self.lista[j]:
+            while j >= 0 and temp < self.lista[j]:
                 self.lista[j + 1] = self.lista[j]
                 j -= 1
                 self.update_display()
                 self.window.after(100)
-            self.lista[j + 1] = key
+            self.lista[j + 1] = temp
         self.update_display()
 
     

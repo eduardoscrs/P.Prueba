@@ -97,13 +97,17 @@ class NumberVisualizer:
 
     #* Función para ordenar la lista usando el algoritmo de ordenamiento burbuja
     def bubble_sort(self):
-        n = len(self.lista)
-        for i in range(n):
-            for j in range(0, n-i-1):
-                if self.lista[j] > self.lista[j+1]:
-                    self.lista[j], self.lista[j+1] = self.lista[j+1], self.lista[j]
-                    self.update_display()
-                    self.window.after(100)
+        for i in range(1, len(self.lista)):
+            key = self.lista[i]
+            j = i - 1
+            while j >= 0 and key < self.lista[j]:
+                self.lista[j + 1] = self.lista[j]
+                j -= 1
+                self.update_display()
+                self.window.after(100)
+            self.lista[j + 1] = key
+        self.update_display()
+
     
     #* Función para realizar una búsqueda binaria con animación
     def binary_search(self):

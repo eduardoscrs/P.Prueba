@@ -113,7 +113,7 @@ class Main_Ordenamiento:
         self.actualizar_ventana()
 
     
-    #* Función para realizar una búsqueda binaria con animación
+    #* Función para realizar una búsqueda binaria   
     def busq_bin(self):
         # Obtener el valor a buscar
         objetivo = int(self.search_entry.get())

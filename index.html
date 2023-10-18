@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Estilos CSS para el contenedor de resultados */
+        .result-container {
+            display: none; /* Ocultar el contenedor inicialmente */
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Búsqueda Binaria</h1>
+
+    <input type="text" id="search-input" placeholder="Introduce el número a buscar">
+    <button id="search-button">Buscar</button>
+
+    <!-- Contenedor para mostrar los resultados -->
+    <div class="result-container" id="result-container">
+        <p>Resultado: <span id="result"></span></p>
+    </div>
+
+    <script>
+        // Función para realizar la búsqueda binaria
+        function binarySearch(arr, target) {
+            let left = 0;
+            let right = arr.length - 1;
+
+            while (left <= right) {
+                const mid = Math.floor((left + right) / 2);
+                if (arr[mid] === target) {
+                    return mid;
+                } else if (arr[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+
+            return -1; // Retorna -1 si el elemento no se encontró
+        }
+
+        // Manejar el evento de clic en el botón de búsqueda
+        document.getElementById("search-button").addEventListener("click", function () {
+            const searchValue = parseInt(document.getElementById("search-input").value);
+            const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Tu arreglo de búsqueda
+
+            const result = binarySearch(array, searchValue);
+            const resultContainer = document.getElementById("result-container");
+            const resultElement = document.getElementById("result");
+
+            if (result !== -1) {
+                resultContainer.style.display = "block"; // Mostrar el contenedor de resultados
+                resultElement.textContent = `El número ${searchValue} se encuentra en la posición ${result}.`;
+            } else {
+                resultContainer.style.display = "block"; // Mostrar el contenedor de resultados
+                resultElement.textContent = `El número ${searchValue} no se encontró en el arreglo.`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,20 +1,24 @@
-def insertsort(lista):
-    for i in range(1, len(lista)):
-        temp = lista[i]
-        j = i - 1
-        while j >= 0 and temp < lista[j]:
-            lista[j + 1] = lista[j]
-            j -= 1
-        lista[j + 1] = temp
+def bus_bin(lista, x):
+    izq = 0
+    der = len(lista) - 1
+    iteracion = 0  # Variable para llevar un registro del número de iteraciones
+    
+    while izq <= der:
+        medio = (izq + der) // 2
+        if lista[medio] == x:
+            print(f"Elemento {x} encontrado en la posición {medio} después de {iteracion} iteraciones.")
+            return medio
+        elif lista[medio] > x:
+            der = medio - 1
+        else:
+            izq = medio + 1
+        iteracion += 1  # Incrementa el contador de iteraciones en cada ciclo
+        
+        # Agrega una impresión para mostrar la información de la iteración actual
+        print(f"Iteración {iteracion}: izq = {izq}, der = {der}, medio = {medio}, x = {x}")
+    
+    print(f"Elemento {x} no encontrado después de {iteracion} iteraciones.")
+    return -1
 
-        # Imprimir el estado de la lista en cada iteración
-        print(f"Iteración {i}: {lista}")
-
-    return lista
-
-
-lista = [1, 5, 3, 2, 4, 3, 4, 5, 12, 11, 10, 9, 8, 7, 6]
-
-print(insertsort(lista))                
-                
-                
+lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(bus_bin(lista, 10))

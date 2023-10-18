@@ -25,7 +25,7 @@ class Main_Ordenamiento:
     
     #* Función para crear los widgets de entrada
     def widget_entrada(self):
-        input_label = tk.Label(self.window, text="Ingrese números (separados por espacios):")
+        input_label = tk.Label(self.window, text="Ingrese números enteros (separados por espacios):")
         input_label.pack()
 
         self.input_entrada = tk.Entry(self.window)

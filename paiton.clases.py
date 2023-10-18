@@ -22,12 +22,15 @@ class NumberVisualizer:
     def create_input_widgets(self):
         input_label = tk.Label(self.window, text="Ingrese números (separados por espacios):")
         input_label.pack()
-        # Crear una entrada para que el usuario ingrese números
+
         self.input_entry = tk.Entry(self.window)
         self.input_entry.pack()
-        # Botón para agregar los números
+
         add_button = tk.Button(self.window, text="Agregar números", command=self.add_numbers)
         add_button.pack()
+
+        clear_button = tk.Button(self.window, text="Limpiar Lista", command=self.clear_list)
+        clear_button.pack()
         
     #* Función para crear los widgets de ordenamiento
     def create_sorting_widgets(self):
@@ -51,12 +54,23 @@ class NumberVisualizer:
     #* Función para agregar los números ingresados por el usuario a la lista de números a ordenar y mostrarlos en el lienzo
     def add_numbers(self):
         user_input = self.input_entry.get()
-        numbers = user_input.split()
-        for num in numbers:
-            if num.strip().isdigit():
+        if self.validate_input(user_input):
+            numbers = user_input.split()
+            for num in numbers:
                 self.lista.append(int(num.strip()))
+            self.update_display()
+            self.input_entry.delete(0, "end")
+        else:
+            tk.messagebox.showerror("Error", "Ingrese números enteros separados por espacios.")
+
+    def validate_input(self, input_str):
+        # Verificar si la cadena contiene solo números enteros separados por espacios
+        return all(num.strip().isdigit() for num in input_str.split())
+    
+    def clear_list(self):
+        self.lista = []
         self.update_display()
-        self.input_entry.delete(0, "end")
+   
 
     #* Función para iniciar el ordenamiento
     def start_sort(self):
@@ -140,6 +154,7 @@ class NumberVisualizer:
     def clear_highlights(self):
         self.canvas.delete("red")
 
+#* Crear la ventana principal
 if __name__ == "__main__":
     window = tk.Tk()
     app = NumberVisualizer(window)

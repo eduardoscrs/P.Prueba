@@ -76,7 +76,7 @@ class NumberVisualizer:
     #* Función para iniciar el ordenamiento
     def start_sort(self):
         # Ordenar la lista usando el algoritmo de ordenamiento burbuja
-        self.bubble_sort()
+        self.insertion_sort()
 
     #* Función para actualizar el lienzo
     def update_display(self):
@@ -96,7 +96,7 @@ class NumberVisualizer:
         self.window.update()
 
     #* Función para ordenar la lista usando el algoritmo de ordenamiento por inserción
-    def bubble_sort(self):
+    def insertion_sort(self):
         for i in range(1, len(self.lista)):
             key = self.lista[i]
             j = i - 1
@@ -160,7 +160,11 @@ class NumberVisualizer:
         self.canvas.delete("red")
 
 #* Crear la ventana principal
+
+
+        
 if __name__ == "__main__":
     window = tk.Tk()
+    window.geometry("1000x500")
     app = NumberVisualizer(window)
     window.mainloop()

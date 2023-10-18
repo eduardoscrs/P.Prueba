@@ -95,7 +95,7 @@ class NumberVisualizer:
             x += self.element_width + self.spacing
         self.window.update()
 
-    #* Función para ordenar la lista usando el algoritmo de ordenamiento burbuja
+    #* Función para ordenar la lista usando el algoritmo de ordenamiento por inserción
     def bubble_sort(self):
         for i in range(1, len(self.lista)):
             key = self.lista[i]
